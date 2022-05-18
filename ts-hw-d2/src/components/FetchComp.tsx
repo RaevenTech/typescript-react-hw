@@ -5,6 +5,28 @@ import classes from './FetchComp.module.css';
 const FetchComp =() => {
     const [songs, setSongs] = useState([]);
 
+    export interface Song {
+        
+    }
+
+    useEffect(() => {
+     fetchSongs()
+    },[])
+
+    const fetchSongs = async () => {
+        try {
+            let response = await fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=metallica")
+            if(response.ok) {
+                let data = await response.json();
+                setSongs(data);
+            } else {
+                console.log("error");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
   return (
     <div>   
         <h1>Music Search</h1>   
