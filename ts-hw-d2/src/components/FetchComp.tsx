@@ -90,12 +90,12 @@ console.log(songs);
     <div className={classes.fetch}>   
         <SearchComp />
         {songs.map((song) =>(
-                   <Card id="songCard" className="text-center">
+                   <Card  key={song.id} id="songCard" className="text-center">
                    <Card.Header>{song.album.title}</Card.Header>
                    <Card.Body>
                      <Card.Title>{song.title}</Card.Title>
                      <Card.Text>
-                      length: {song.duration}
+                     <small>length: {song.duration}</small>
                      </Card.Text>
                      <Button variant="info">Favourites</Button>
                    </Card.Body>
